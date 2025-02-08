@@ -39,7 +39,7 @@ public class PyTorchMobilePlugin implements FlutterPlugin, MethodCallHandler {
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
     final MethodChannel channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "pytorch_mobile");
-    channel.setMethodCallHandler(new PyTorchMobilePlugin());
+    channel.setMethodCallHandler(this);
   }
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
