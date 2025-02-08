@@ -10,7 +10,6 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 import org.pytorch.DType;
 import org.pytorch.IValue;
@@ -41,11 +40,6 @@ public class PyTorchMobilePlugin implements FlutterPlugin, MethodCallHandler {
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
     final MethodChannel channel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(),
         "pytorch_mobile");
-    channel.setMethodCallHandler(new PyTorchMobilePlugin());
-  }
-
-  public static void registerWith(Registrar registrar) {
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "pytorch_mobile");
     channel.setMethodCallHandler(new PyTorchMobilePlugin());
   }
 
